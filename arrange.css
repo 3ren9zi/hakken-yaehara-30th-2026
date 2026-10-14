@@ -1,0 +1,73 @@
+/* 紙の地図とつながる、和紙と写真の小さな郷土誌。地区色は index.html の既存トークンを使用。 */
+:root{--photo-ink:#fff;--photo-shade:rgba(13,26,17,.7)}
+html{scroll-padding-top:1.5rem}
+.wrap{padding-top:0}
+.topline{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--rule);font-size:.75rem;letter-spacing:.12em;color:var(--ink-soft)}
+.topline a{color:var(--green);text-decoration:none;font-weight:700;padding:.25rem 0}
+.masthead{padding:2.4rem 0 2rem;border:0}
+.eyebrow{color:var(--ink-soft);font-size:.8rem;letter-spacing:.24em}
+.masthead h1{font-size:clamp(2.25rem,9vw,3.25rem);letter-spacing:.04em}
+.masthead .sub{font-size:.875rem}
+.masthead .org{font-size:.75rem}
+.cover{position:relative;margin:0;aspect-ratio:5/4;overflow:hidden;border-radius:2px 2px 40% 2px}
+.cover img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .36s ease,transform 5.8s ease;transform:scale(1.035)}
+.cover.is-changing img{opacity:.15}
+.cover:after{content:"";position:absolute;inset:40% 0 0;background:linear-gradient(transparent,var(--photo-shade));pointer-events:none}
+.cover figcaption{position:absolute;z-index:1;bottom:1.8rem;left:1.5rem;color:var(--photo-ink)}
+.cover figcaption>span{display:block;font-family:var(--serif);font-weight:700;font-size:clamp(1rem,4vw,1.35rem);letter-spacing:.08em}
+.cover small{display:block;margin-top:.5rem;font-size:.75rem;letter-spacing:.1em}
+.cover-controls{position:absolute;z-index:2;right:1rem;bottom:1.1rem;display:flex;align-items:center;gap:.75rem}
+.cover-controls[hidden]{display:none}
+.cover-dots{display:flex;align-items:center;gap:.45rem}
+.cover-dots button{width:10px;height:10px;border:1px solid rgba(255,255,255,.9);border-radius:50%;padding:0;background:transparent;cursor:pointer}
+.cover-dots button[aria-current="true"]{background:#fff}
+.cover-toggle{display:grid;place-items:center;width:36px;height:36px;border:1px solid rgba(255,255,255,.7);border-radius:50%;padding:0;background:rgba(13,26,17,.38);color:#fff;font:700 .75rem/1 var(--sans);cursor:pointer}
+.cover-dots button:focus-visible,.cover-toggle:focus-visible{outline-color:#fff}
+.intro-title{margin:2.5rem 0 1.2rem;border-left:3px solid var(--green);padding-left:1.2rem}
+.intro-title>span{font-size:.75rem;letter-spacing:.18em;color:var(--green);font-weight:700}
+.intro-title h2{font:700 clamp(1.55rem,6vw,2rem)/1.65 var(--serif);letter-spacing:.06em;margin:.5rem 0 0}
+.lede{margin:1.5rem 0 2.5rem;line-height:2.15;color:var(--ink-soft)}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid var(--rule);padding-top:1.6rem}
+.section-title h2{font:700 1.25rem/1.6 var(--serif);margin:0}
+.section-title>span{font-size:.75rem;letter-spacing:.1em;color:var(--ink-soft);white-space:nowrap}
+.map-hint{font-size:.875rem;color:var(--ink-soft);margin:.6rem 0 1.2rem}
+.grid{gap:.8rem}
+.card{grid-template-columns:.35rem 1fr auto;box-shadow:none;border-radius:2px}
+.card .body{padding:1.1rem 0 1.1rem 1.15rem}
+.card .nm{font-size:1.45rem}
+.card .yomi{font-size:.8rem;color:var(--ink-soft)}
+.card .tag{font-size:.875rem;line-height:1.75;margin-top:.55rem}
+.card .go{font-size:1.4rem;padding:0 1.15rem}
+.reading .masthead{padding:1.5rem 0;border-bottom:1px solid var(--rule)}
+.reading .masthead h1{font-size:1.75rem}
+.reading .masthead .eyebrow,.reading .masthead .org{display:none}
+.reading .masthead .sub{font-size:.8rem}
+.back{font-size:.875rem;min-height:44px;align-items:center}
+.district-tag{font-family:var(--serif);font-size:1.05rem;color:var(--ink-soft);margin:1.2rem 0 1.6rem}
+.contents{border:1px solid var(--rule);padding:1.15rem;background:var(--raised)}
+.contents>p{font-size:.875rem;font-weight:700;margin:0 0 .6rem;display:flex;justify-content:space-between}
+.contents>p span{color:var(--ink-soft);font-weight:400}
+.contents button{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;background:none;border:0;border-top:1px solid var(--rule-soft);color:var(--ink-soft);font:inherit;font-size:.875rem;line-height:1.6;text-align:left;min-height:44px;padding:.65rem 0;cursor:pointer}
+.contents button span{color:var(--dc)}
+.contents button:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.sec>h3{font-size:.875rem;color:var(--ink);letter-spacing:.1em}
+.entry{box-shadow:none;border-radius:2px}
+.entry .txt{padding:1.3rem}
+.entry h4{font-size:1.4rem;margin:.2rem 0 .4rem}
+.entry .where{font-size:.875rem;color:var(--ink-soft);margin-bottom:.85rem}
+.entry p:not(.where){font-family:var(--serif);font-size:1rem;line-height:2.1}
+.entry-extra{margin-top:1.3rem;padding-top:1.15rem;border-top:1px solid var(--rule-soft)}
+.entry-extra h5{font-family:var(--serif);font-size:1.15rem;letter-spacing:.04em;line-height:1.5;margin:0 0 .25rem}
+.entry-extra .where{margin-bottom:.7rem}
+.chip{font-size:.75rem;letter-spacing:.05em}
+/* 未収集の写真枠は小さくし、本文にすぐ進めるようにする。 */
+.photo:not(:has(img)){aspect-ratio:auto;min-height:64px;display:flex;justify-content:center;gap:.7rem}
+.photo .cap{font-size:.75rem}
+.photo .ico{width:1.4rem;height:1.1rem}
+.srcs,.footer{font-size:.8rem;color:var(--ink-soft)}
+.footer{margin-top:3rem}
+.footer .mark{font-size:1.25rem}
+@media(min-width:760px){.wrap{padding-left:1.5rem;padding-right:1.5rem}.cover{aspect-ratio:5/3}.masthead{padding-top:2.8rem}}
+@media(max-width:360px){.wrap{padding-left:1rem;padding-right:1rem}.section-title{align-items:flex-start;flex-direction:column;gap:.25rem}.cover figcaption{left:1rem;bottom:1.4rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.cover img{transition:none;transform:none}}

@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="千葉県君津市 八重原公民館 開館30周年記念。三直・法木作・内箕輪・外箕輪・杢師・南子安・北子安・八重原、八つの地区の地名の由来と、神社・寺院・史跡をたどる歴史探検マップ。">
+<meta name="format-detection" content="telephone=no">
+<title>はっけん八重原</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --paper:#F1EFE6;
+  --raised:#FAF8F1;
+  --sunken:#E9E6DA;
+  --ink:#23201A;
+  --ink-soft:#5E5849;
+  --ink-faint:#8A8474;
+  --rule:#D9D4C3;
+  --rule-soft:#E4E0D2;
+  --green:#3A5A43;
+  --seal:#A8443A;
+  --shadow:0 1px 0 rgba(35,32,26,.05), 0 8px 24px -18px rgba(35,32,26,.5);
+
+  --d-kitakoyasu:#6F8F4E;
+  --d-minamikoyasu:#7E6C99;
+  --d-mokushi:#4E7599;
+  --d-sotominowa:#C07C36;
+  --d-yaehara:#C39A2C;
+  --d-uchiminowa:#A98548;
+  --d-hokisaku:#B24C42;
+  --d-minao:#5490A8;
+
+  --serif:"Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --sans:"Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#191814;
+    --raised:#222019;
+    --sunken:#141310;
+    --ink:#EDE9DC;
+    --ink-soft:#B3AD9C;
+    --ink-faint:#8A8474;
+    --rule:#3A362C;
+    --rule-soft:#2C2922;
+    --green:#8FB295;
+    --seal:#D98274;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 10px 28px -20px #000;
+
+    --d-kitakoyasu:#A3C47C;
+    --d-minamikoyasu:#B3A0CE;
+    --d-mokushi:#84B4D8;
+    --d-sotominowa:#E5A863;
+    --d-yaehara:#E6C45C;
+    --d-uchiminowa:#D2AE73;
+    --d-hokisaku:#E58479;
+    --d-minao:#8AC2D6;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#191814;
+  --raised:#222019;
+  --sunken:#141310;
+  --ink:#EDE9DC;
+  --ink-soft:#B3AD9C;
+  --ink-faint:#8A8474;
+  --rule:#3A362C;
+  --rule-soft:#2C2922;
+  --green:#8FB295;
+  --seal:#D98274;
+  --shadow:0 1px 0 rgba(0,0,0,.3), 0 10px 28px -20px #000;
+
+  --d-kitakoyasu:#A3C47C;
+  --d-minamikoyasu:#B3A0CE;
+  --d-mokushi:#84B4D8;
+  --d-sotominowa:#E5A863;
+  --d-yaehara:#E6C45C;
+  --d-uchiminowa:#D2AE73;
+  --d-hokisaku:#E58479;
+  --d-minao:#8AC2D6;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.85;
+  font-feature-settings:"palt" 1;
+}
+.wrap{max-width:37rem;margin:0 auto;padding:0 1.25rem 5rem}
+
+/* ---------- masthead ---------- */
+.masthead{
+  padding:2.25rem 0 1.5rem;
+  text-align:center;
+  border-bottom:1px solid var(--rule);
+}
+.eyebrow{
+  font-size:.72rem;letter-spacing:.22em;color:var(--ink-faint);
+  margin:0 0 .9rem;font-weight:500;
+}
+.masthead h1{
+  font-family:var(--serif);font-weight:800;
+  font-size:clamp(2.1rem,9vw,2.9rem);
+  letter-spacing:.06em;line-height:1.25;margin:0;
+  color:var(--green);text-wrap:balance;
+}
+.masthead .sub{
+  margin:.7rem 0 0;font-size:.86rem;color:var(--ink-soft);letter-spacing:.06em;
+}
+.masthead .org{
+  margin:1.1rem 0 0;font-size:.72rem;color:var(--ink-faint);letter-spacing:.08em;
+}
+
+/* ---------- index ---------- */
+.lede{
+  font-family:var(--serif);
+  font-size:1rem;line-height:2.05;
+  margin:1.9rem 0 1.6rem;color:var(--ink-soft);
+}
+.list-label{
+  display:flex;align-items:center;gap:.85rem;
+  font-size:.72rem;letter-spacing:.2em;color:var(--ink-faint);
+  margin:0 0 1rem;font-weight:500;
+}
+.list-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+.grid{display:flex;flex-direction:column;gap:.6rem;margin:0;padding:0;list-style:none}
+.card{
+  display:grid;grid-template-columns:.5rem 1fr auto;align-items:stretch;
+  background:var(--raised);border:1px solid var(--rule-soft);
+  border-radius:3px;overflow:hidden;text-decoration:none;color:inherit;
+  box-shadow:var(--shadow);
+  transition:transform .16s ease, border-color .16s ease;
+}
+.card:hover,.card:focus-visible{transform:translateY(-2px);border-color:var(--dc)}
+.card:focus-visible{outline:2px solid var(--dc);outline-offset:2px}
+.card .band{background:var(--dc)}
+.card .body{padding:.95rem 0 .95rem 1rem;min-width:0}
+.card .nm{
+  font-family:var(--serif);font-weight:700;font-size:1.32rem;
+  letter-spacing:.05em;line-height:1.35;display:block;
+}
+.card .yomi{font-size:.72rem;color:var(--ink-faint);letter-spacing:.12em;display:block;margin-top:.15rem}
+.card .tag{
+  font-size:.78rem;color:var(--ink-soft);margin-top:.4rem;display:block;
+  line-height:1.6;
+}
+.card .go{
+  display:flex;align-items:center;padding:0 1rem 0 .75rem;
+  color:var(--dc);font-size:1.1rem;
+}
+
+/* ---------- detail ---------- */
+.detail{display:none;animation:rise .32s ease both}
+.detail.on{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .detail{animation:none}
+  .card{transition:none}
+}
+
+.back{
+  display:inline-flex;align-items:center;gap:.4rem;
+  margin:1.5rem 0 0;font-size:.8rem;color:var(--ink-soft);
+  text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:.15rem;
+}
+.back:hover,.back:focus-visible{color:var(--green);border-color:var(--green)}
+
+.dhead{margin:1.6rem 0 0;display:flex;align-items:center;gap:1rem}
+.seal{
+  flex:none;width:3.35rem;height:3.35rem;border-radius:50%;
+  border:2px solid var(--dc);display:grid;place-items:center;
+  font-family:var(--serif);font-weight:800;font-size:1.6rem;color:var(--dc);
+  letter-spacing:0;
+}
+.dhead .t h2{
+  font-family:var(--serif);font-weight:800;
+  font-size:clamp(1.85rem,7.5vw,2.35rem);letter-spacing:.08em;
+  margin:0;line-height:1.25;
+}
+.dhead .t .yomi{
+  display:block;font-size:.75rem;letter-spacing:.16em;color:var(--ink-faint);margin-top:.25rem;
+}
+.dbar{height:3px;background:var(--dc);margin:1.1rem 0 0;border-radius:2px}
+
+.sec{margin:2.4rem 0 0}
+.sec > h3{
+  font-family:var(--sans);font-size:.75rem;font-weight:700;
+  letter-spacing:.2em;color:var(--dc);margin:0 0 .9rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.sec > h3::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+.prose p{
+  font-family:var(--serif);font-size:1.02rem;line-height:2.1;
+  margin:0 0 1.1rem;
+}
+.prose p:last-child{margin-bottom:0}
+.prose .note{
+  font-family:var(--sans);font-size:.82rem;line-height:1.9;
+  color:var(--ink-soft);background:var(--sunken);
+  border-left:3px solid var(--dc);padding:.8rem 1rem;margin:1.2rem 0 0;
+  border-radius:0 3px 3px 0;
+}
+
+/* ---------- entries ---------- */
+.entries{display:flex;flex-direction:column;gap:1.6rem}
+.entry{
+  background:var(--raised);border:1px solid var(--rule-soft);
+  border-radius:3px;overflow:hidden;box-shadow:var(--shadow);
+}
+/* 写真の差し替えはここ：.photo の中に <img> を入れてください */
+.photo{
+  aspect-ratio:4/3;background:var(--sunken);
+  border-bottom:1px solid var(--rule-soft);
+  display:grid;place-items:center;gap:.35rem;
+  color:var(--ink-faint);
+}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo .ico{
+  width:2.1rem;height:1.65rem;border:1.5px solid currentColor;border-radius:2px;
+  position:relative;opacity:.55;
+}
+.photo .ico::after{
+  content:"";position:absolute;left:.25rem;right:.25rem;bottom:.22rem;height:.55rem;
+  border-top:1.5px solid currentColor;
+  clip-path:polygon(0 100%,32% 0,55% 55%,72% 28%,100% 100%);
+}
+.photo .cap{font-size:.68rem;letter-spacing:.18em}
+
+.entry .txt{padding:1.05rem 1.15rem 1.2rem}
+.chip{
+  display:inline-block;font-size:.66rem;letter-spacing:.14em;
+  color:var(--dc);border:1px solid var(--dc);
+  padding:.12rem .5rem;border-radius:999px;margin:0 0 .5rem;
+}
+.entry h4{
+  font-family:var(--serif);font-weight:700;font-size:1.18rem;
+  letter-spacing:.04em;margin:0 0 .1rem;line-height:1.45;
+}
+.entry .where{font-size:.72rem;color:var(--ink-faint);letter-spacing:.06em;margin:0 0 .6rem}
+.entry p{margin:0;font-size:.92rem;line-height:1.95;color:var(--ink-soft)}
+
+.srcs{
+  margin:2.8rem 0 0;padding:1.1rem 0 0;border-top:1px solid var(--rule);
+  font-size:.72rem;line-height:1.9;color:var(--ink-faint);
+}
+.srcs b{font-weight:700;color:var(--ink-soft);letter-spacing:.1em;display:block;margin-bottom:.3rem}
+
+.footer{
+  margin:3.5rem 0 0;padding:1.4rem 0 0;border-top:1px solid var(--rule);
+  text-align:center;font-size:.72rem;line-height:2;color:var(--ink-faint);
+}
+.footer .mark{color:var(--seal);letter-spacing:.3em;font-size:.8rem}
+</style>
+<link rel="stylesheet" href="arrange.css">
+
+</head>
+<body>
+<div class="wrap">
+  <div class="topline"><a href="#" aria-label="はっけん八重原 ホーム">君津・八重原</a><span>開館30周年記念</span></div>
+
+  <header class="masthead">
+    <p class="eyebrow">おらほうっちゃ、こんなとこ</p>
+    <h1>はっけん八重原</h1>
+    <p class="sub">地域の記憶をめぐる歴史探検マップ</p>
+    <p class="org">千葉県君津市　八重原公民館　開館30周年記念</p>
+  </header>
+
+  <!-- ============ 一覧 ============ -->
+  <main id="index">
+    <figure class="cover" id="cover-slideshow" aria-label="八重原地区の写真">
+      <img id="cover-image" src="photos/mokushi-hachimanjinja.jpg" alt="杢師・八幡神社の境内" width="1400" height="1050" fetchpriority="high">
+      <figcaption><span>地域の記憶を、次の世代へ。</span><small id="cover-caption">杢師・八幡神社</small></figcaption>
+      <div class="cover-controls" id="cover-controls" hidden>
+        <div class="cover-dots" id="cover-dots" aria-label="表示する写真を選ぶ"></div>
+        <button class="cover-toggle" id="cover-toggle" type="button" aria-label="写真の自動切り替えを一時停止">Ⅱ</button>
+      </div>
+    </figure>
+    <div class="intro-title"><span>八重原 歴史さんぽ</span><h2>いつものまちに、<br>まだ知らない物語。</h2></div>
+    <p class="lede">
+      八重原は、三直・法木作・内箕輪・外箕輪・杢師・南子安・北子安の七つの村が
+      明治22年（1889）に合併してできた地域です。それぞれの地名には、
+      千年をこえて語りつがれてきた由来があります。
+      お手元のマップと同じ色をたどって、あなたの住む地区をひらいてみてください。
+    </p>
+
+    <div class="section-title"><h2>八つの地区をめぐる</h2><span>08 DISTRICTS</span></div>
+    <p class="map-hint">紙のマップと同じ色の地区を選んでください。</p>
+    <ul class="grid" id="cards"></ul>
+
+    <div class="srcs">
+      <b>おもな出典</b>
+      『君津町誌（前編）』昭和35年／『君津の歴史たんぽう 第一冊』／
+      『思いでの中の八重原』／『きみペディア』／『三直』／
+      『箕輪土地区画整理事業のあゆみ』
+    </div>
+  </main>
+
+  <!-- ============ 各地区 ============ -->
+  <main id="detail" hidden></main>
+  <noscript><p>地区の解説を表示するには、ブラウザのJavaScriptを有効にしてください。</p></noscript>
+
+  <footer class="footer">
+    <p class="mark">✿</p>
+    <p>八重原公民館 開館30周年記念事業実行委員会<br>令和8年（2026）</p>
+  </footer>
+
+</div>
+
+<script src="data.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* トップ写真：data.js に写真を追加すると、スライドにも自動で加わります */
+const coverPhotos = DISTRICTS.flatMap(d => d.items
+  .filter(item => item.photo)
+  .map(item => ({src:item.photo, alt:d.name+'・'+item.name, caption:d.name+'・'+item.name}))
+);
+if(coverPhotos.length){
+  const cover = $('#cover-slideshow');
+  const coverImage = $('#cover-image');
+  const coverCaption = $('#cover-caption');
+  const controls = $('#cover-controls');
+  const dots = $('#cover-dots');
+  const toggle = $('#cover-toggle');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let coverIndex = Math.max(0, coverPhotos.findIndex(photo => photo.src === coverImage.getAttribute('src')));
+  let coverTimer = null;
+  let coverPaused = reducedMotion;
+
+  coverPhotos.forEach(photo => { const image = new Image(); image.src = photo.src; });
+  dots.innerHTML = coverPhotos.map((photo,index) =>
+    `<button type="button" data-cover-index="${index}" aria-label="${esc(photo.caption)}を表示"></button>`
+  ).join('');
+
+  function showCover(index){
+    coverIndex = (index + coverPhotos.length) % coverPhotos.length;
+    const photo = coverPhotos[coverIndex];
+    cover.classList.add('is-changing');
+    setTimeout(() => {
+      coverImage.src = photo.src;
+      coverImage.alt = photo.alt;
+      coverCaption.textContent = photo.caption;
+      dots.querySelectorAll('button').forEach((dot,i) => dot.setAttribute('aria-current', i === coverIndex ? 'true' : 'false'));
+      requestAnimationFrame(() => cover.classList.remove('is-changing'));
+    }, reducedMotion ? 0 : 180);
+  }
+  function stopCover(){ clearInterval(coverTimer); coverTimer = null; }
+  function startCover(){
+    stopCover();
+    if(!coverPaused && !document.hidden) coverTimer = setInterval(() => showCover(coverIndex + 1), 5500);
+  }
+  function setCoverPaused(paused){
+    coverPaused = paused;
+    toggle.textContent = paused ? '▶' : 'Ⅱ';
+    toggle.setAttribute('aria-label', paused ? '写真の自動切り替えを再開' : '写真の自動切り替えを一時停止');
+    startCover();
+  }
+
+  if(coverPhotos.length > 1){
+    controls.hidden = false;
+    dots.addEventListener('click', event => {
+      const dot = event.target.closest('button[data-cover-index]');
+      if(!dot) return;
+      showCover(Number(dot.dataset.coverIndex));
+      startCover();
+    });
+    toggle.addEventListener('click', () => setCoverPaused(!coverPaused));
+    cover.addEventListener('mouseenter', stopCover);
+    cover.addEventListener('mouseleave', startCover);
+    cover.addEventListener('focusin', stopCover);
+    cover.addEventListener('focusout', event => { if(!cover.contains(event.relatedTarget)) startCover(); });
+    document.addEventListener('visibilitychange', startCover);
+  }
+  showCover(coverIndex);
+  setCoverPaused(coverPaused);
+}
+/* 写真の差し替え：item.photo にファイル名を入れ、下の分岐を使ってください */
+function renderPhoto(item){
+  if(item.photo){
+    return '<div class="photo"><img src="'+esc(item.photo)+'" alt="'+esc(item.name)+'" loading="lazy" decoding="async"></div>';
+  }
+  return '<div class="photo"><span class="ico"></span><span class="cap">写真</span></div>';
+}
+
+/* 一覧 */
+$('#cards').innerHTML = DISTRICTS.map(d => `
+  <li>
+    <a class="card" href="#${d.id}" style="--dc:var(--d-${d.id})">
+      <span class="band"></span>
+      <span class="body">
+        <span class="nm">${esc(d.name)}</span>
+        <span class="yomi">${esc(d.yomi)}</span>
+        <span class="tag">${esc(d.tag)}</span>
+      </span>
+      <span class="go" aria-hidden="true">↗</span>
+    </a>
+  </li>`).join('');
+
+/* 各地区 */
+$('#detail').innerHTML = DISTRICTS.map(d => `
+  <section class="detail" id="${d.id}" style="--dc:var(--d-${d.id})" aria-labelledby="h-${d.id}">
+    <a class="back" href="#">← 地区の一覧へもどる</a>
+    <div class="dhead">
+      <span class="seal" aria-hidden="true">${esc(d.kanji)}</span>
+      <span class="t">
+        <h2 id="h-${d.id}">${esc(d.name)}</h2>
+        <span class="yomi">${esc(d.yomi)}</span>
+      </span>
+    </div>
+    <div class="dbar"></div>
+    <p class="district-tag">${esc(d.tag)}</p>
+    <nav class="contents" aria-label="${esc(d.name)}の見どころ"><p>この地区の見どころ <span>${d.items.length}件</span></p>${d.items.map((it,i) => `<button type="button" data-entry="entry-${d.id}-${i}">${esc(it.name)} <span aria-hidden="true">↓</span></button>`).join('')}</nav>
+
+    <div class="sec">
+      <h3>地名の由来</h3>
+      <div class="prose">
+        ${d.origin.map(p => `<p>${esc(p)}</p>`).join('')}
+        ${d.note ? `<p class="note">${esc(d.note)}</p>` : ''}
+      </div>
+    </div>
+
+    <div class="sec">
+      <h3>歴史遺物・建造物</h3>
+      <div class="entries">
+        ${d.items.map((it,i) => `
+          <article class="entry" id="entry-${d.id}-${i}" tabindex="-1">
+            ${renderPhoto(it)}
+            <div class="txt">
+              <span class="chip">${esc(it.cat)}</span>
+              <h4>${esc(it.name)}</h4>
+              <p class="where">${esc(it.where)}</p>
+              <p>${esc(it.text)}</p>
+              ${it.extra ? `<section class="entry-extra">
+                <h5>${esc(it.extra.name)}</h5>
+                <p class="where">${esc(it.extra.where)}</p>
+                <p>${esc(it.extra.text)}</p>
+              </section>` : ''}
+            </div>
+          </article>`).join('')}
+      </div>
+    </div>
+
+    <div class="srcs">
+      <b>おもな出典</b>
+      『君津町誌（前編）』／『君津の歴史たんぽう 第一冊』／『思いでの中の八重原』／
+      『きみペディア』／『三直』／『箕輪土地区画整理事業のあゆみ』
+    </div>
+
+    <p style="margin:2rem 0 0"><a class="back" href="#">← 地区の一覧へもどる</a></p>
+  </section>`).join('');
+
+/* ハッシュで表示を切り替え（QRコードは各地区のURLを指します） */
+function route(){
+  const id = location.hash.replace('#','');
+  const target = id && document.getElementById(id);
+  const isDetail = !!(target && target.classList.contains('detail'));
+
+  document.querySelectorAll('.detail').forEach(s => s.classList.remove('on'));
+  $('#index').style.display = isDetail ? 'none' : '';
+  $('#detail').hidden = !isDetail;
+  document.body.classList.toggle('reading', isDetail);
+
+  if(isDetail){
+    target.classList.add('on');
+    document.title = DISTRICTS.find(d => d.id === id).name + '｜はっけん八重原';
+  }else{
+    document.title = 'はっけん八重原';
+  }
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange', route);
+$('#detail').addEventListener('click', event => {
+  const button = event.target.closest('button[data-entry]');
+  if (!button) return;
+  const entry = document.getElementById(button.dataset.entry);
+  entry.focus({preventScroll:true});
+  entry.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+});
+route();
+</script>
+
+</body>
+</html>

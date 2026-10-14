@@ -1,0 +1,12 @@
+{
+  "name": "hakken-yaehara-decap-trial",
+  "private": true,
+  "scripts": {
+    "build": "node build.cjs",
+    "dev": "node preview.cjs",
+    "cms": "decap-server"
+  },
+  "devDependencies": {
+    "decap-server": "^3.3.1"
+  }
+}

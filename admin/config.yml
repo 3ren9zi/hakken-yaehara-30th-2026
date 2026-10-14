@@ -1,0 +1,51 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+
+locale: ja
+media_folder: photos
+public_folder: photos
+
+collections:
+  - name: districts
+    label: 地域の歴史・文化
+    label_singular: 地区
+    folder: content/districts
+    create: false
+    extension: json
+    format: json
+    identifier_field: name
+    summary: "{{name}}"
+    fields:
+      - { label: 地区ID（変更不可）, name: id, widget: hidden }
+      - { label: 地区名, name: name, widget: string }
+      - { label: ふりがな, name: yomi, widget: string }
+      - { label: 印の文字, name: kanji, widget: string }
+      - { label: 一覧の紹介文, name: tag, widget: string }
+      - label: 地名の由来
+        name: origin
+        widget: list
+        field: { label: 段落, name: paragraph, widget: text }
+      - { label: 補足, name: note, widget: text, required: false }
+      - label: 歴史遺物・建造物
+        name: items
+        widget: list
+        summary: "{{fields.name}}"
+        fields:
+          - { label: 分類, name: cat, widget: string }
+          - { label: 名称, name: name, widget: string }
+          - { label: 所在地など, name: where, widget: string }
+          - { label: 写真, name: photo, widget: image, required: false }
+          - { label: 説明, name: text, widget: text }
+          - label: 同じ枠内の追加項目
+            name: extra
+            widget: object
+            required: false
+            fields:
+              - { label: 分類, name: cat, widget: string, required: false }
+              - { label: 名称, name: name, widget: string, required: false }
+              - { label: 所在地など, name: where, widget: string, required: false }
+              - { label: 写真, name: photo, widget: image, required: false }
+              - { label: 説明, name: text, widget: text, required: false }
