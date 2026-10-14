@@ -4,6 +4,7 @@ backend:
   name: github
   repo: 3ren9zi/hakken-yaehara-30th-2026
   branch: main
+  base_url: https://hakken-yaehara-cms-auth.3ren9zi.workers.dev
 
 locale: ja
 media_folder: photos
