@@ -27,3 +27,5 @@
 - Decap CMSのGitHubログイン用OAuth設定
 
 GitHub Pagesだけでは管理画面のログイン機能は付きません。公開作業では、GitHub OAuth用の小さな認証サービスを別途設定します。
+
+公開用Repository: https://github.com/3ren9zi/hakken-yaehara-30th-2026

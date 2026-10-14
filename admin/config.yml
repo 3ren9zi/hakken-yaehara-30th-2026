@@ -1,7 +1,8 @@
 local_backend: true
 
 backend:
-  name: git-gateway
+  name: github
+  repo: 3ren9zi/hakken-yaehara-30th-2026
   branch: main
 
 locale: ja
