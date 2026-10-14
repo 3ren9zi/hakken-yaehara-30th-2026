@@ -28,6 +28,8 @@ jobs:
         run: node build.cjs
       - name: GitHub Pagesを準備
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: 公開用ファイルをアップロード
         uses: actions/upload-pages-artifact@v4
         with:
