@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://3ren9zi.github.io/hakken-yaehara-30th-2026/sitemap.xml

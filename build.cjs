@@ -38,7 +38,7 @@ const generated = `/* 管理画面の内容から自動生成。直接編集し�
 const output = path.join(root, 'dist');
 fs.mkdirSync(output, { recursive: true });
 fs.writeFileSync(path.join(root, 'data.js'), generated, 'utf8');
-for (const file of ['index.html', 'data.js', 'arrange.css']) {
+for (const file of ['index.html', 'data.js', 'arrange.css', 'robots.txt', 'sitemap.xml']) {
   fs.copyFileSync(path.join(root, file), path.join(output, file));
 }
 for (const dir of ['photos', 'admin']) {
